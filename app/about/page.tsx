@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -62,14 +63,15 @@ export default async function AboutPage() {
             {/* Portrait — sticky on desktop */}
             <div className="lg:w-72 flex-shrink-0">
               <div className="lg:sticky lg:top-28">
-                <div className="aspect-[3/4] bg-cdm-off-white rounded-xl border border-cdm-rule flex flex-col items-center justify-center gap-3">
-                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                    <circle cx="32" cy="24" r="14" fill="#B0B0B0" />
-                    <ellipse cx="32" cy="58" rx="24" ry="14" fill="#B0B0B0" />
-                  </svg>
-                  <span className="text-label text-cdm-gray-3 text-center px-4">
-                    Add portrait to<br />public/images/portrait.jpg
-                  </span>
+                <div className="aspect-[3/4] bg-cdm-off-white rounded-xl overflow-hidden relative">
+                  <Image
+                    src="/images/Screenshot 2024-11-17 140707.png"
+                    alt="Christian Del Pilar"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 288px"
+                    priority
+                  />
                 </div>
               </div>
             </div>
