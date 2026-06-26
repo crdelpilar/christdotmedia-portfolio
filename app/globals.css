@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ── Brand tokens ────────────────────────────────── */
+:root {
+  --cdm-black:     #1A1A1A;
+  --cdm-white:     #FFFFFF;
+  --cdm-off-white: #F7F6F3;
+  --cdm-gray-1:    #4A4A4A;
+  --cdm-gray-2:    #7A7A7A;
+  --cdm-gray-3:    #B0B0B0;
+  --cdm-rule:      #E2E2E2;
+  --cdm-orange:    #F5A623;
+  --cdm-pink:      #F56B8D;
+  --cdm-gradient:  linear-gradient(135deg, #F5A623, #F56B8D);
+}
+
+/* ── Tailwind 4 theme ────────────────────────────── */
+@theme {
+  --color-cdm-black:     var(--cdm-black);
+  --color-cdm-white:     var(--cdm-white);
+  --color-cdm-off-white: var(--cdm-off-white);
+  --color-cdm-gray-1:    var(--cdm-gray-1);
+  --color-cdm-gray-2:    var(--cdm-gray-2);
+  --color-cdm-gray-3:    var(--cdm-gray-3);
+  --color-cdm-rule:      var(--cdm-rule);
+  --color-cdm-orange:    var(--cdm-orange);
+  --color-cdm-pink:      var(--cdm-pink);
+
+  --font-sans: var(--font-outfit, ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--font-space-mono, ui-monospace, monospace);
+}
+
+/* ── Base reset ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cdm-white);
+  color: var(--cdm-gray-1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Utilities ───────────────────────────────────── */
+@layer utilities {
+  .gradient-text {
+    background: var(--cdm-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-bg {
+    background: var(--cdm-gradient);
+  }
+
+  /* Pill buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #fff;
+    background: var(--cdm-gradient);
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1.5px solid currentColor;
+    background: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Fluid hero display */
+  .text-display {
+    font-size: clamp(44px, 9vw, 140px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  .text-section-title {
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* Section rule */
+  .section-rule {
+    border-top: 1px solid var(--cdm-rule);
+    padding-top: 2rem;
+  }
+}
